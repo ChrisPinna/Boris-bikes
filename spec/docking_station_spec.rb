@@ -11,13 +11,17 @@ describe DockingStation do
         expect(bike.working?).to(eq(true))
     end
 
-    it 'should dock a bike' do
-        bike = Bike.new
-        expect(subject.dock(bike)).to be true
+    it 'should respond to dock' do
+        expect(subject).to(respond_to(:dock))
     end
 
     it 'should have an empty array of bikes when we create a new docking station' do
         expect(@rack).to be_nil
+    end
+
+    it 'should be able to hold my docked bike in the rack' do
+        bike = subject.release_bike
+        expect(subject.dock(bike)).to(eq(subject.rack))
     end
 
 end
