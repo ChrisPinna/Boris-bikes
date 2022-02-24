@@ -13,6 +13,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise 'No spaces to dock a bike' if @rack.count >= 1
     @rack << bike
   end
 end
