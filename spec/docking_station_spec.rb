@@ -31,4 +31,8 @@ describe DockingStation do
         subject.dock(Bike.new)
         expect{subject.dock(Bike.new)}.to raise_error 'No spaces to dock a bike'
     end
+
+    it '' do 
+    
+    end
 end

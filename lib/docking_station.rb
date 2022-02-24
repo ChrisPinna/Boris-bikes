@@ -9,11 +9,11 @@ class DockingStation
 
   def release_bike
     raise 'No bikes available' if @rack.empty?
-    return Bike.new
+    return @rack.pop
   end
 
   def dock(bike)
-    raise 'No spaces to dock a bike' if @rack.count >= 1
+    raise 'No spaces to dock a bike' if @rack.count >= 20
     @rack << bike
   end
 end
