@@ -6,8 +6,7 @@ describe DockingStation do
     end
 
     it 'should release a working bike' do
-        bike = subject.release_bike
-        expect(bike).to be_instance_of(Bike)
+        bike = Bike.new
         expect(bike.working?).to(eq(true))
     end
 
@@ -20,8 +19,11 @@ describe DockingStation do
     end
 
     it 'should be able to hold my docked bike in the rack' do
-        bike = subject.release_bike
+        bike = Bike.new
         expect(subject.dock(bike)).to(eq(subject.rack))
     end
 
+    it 'should return an error if releasing bike while docking station is empty' do
+       expect{subject.release_bike}.to raise_error('No bikes available')
+    end
 end
