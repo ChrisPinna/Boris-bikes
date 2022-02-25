@@ -28,11 +28,11 @@ describe DockingStation do
     end
 
     it 'should return an error if we try to dock too many bikes ;)' do
-        subject.dock(Bike.new)
+    20.times{subject.dock(Bike.new)}
         expect{subject.dock(Bike.new)}.to raise_error 'No spaces to dock a bike'
     end
 
-    it '' do 
+    # it '' do 
     
-    end
+    # end
 end
